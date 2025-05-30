@@ -4,6 +4,8 @@ BARTR is a modern platform that enables users to exchange skills, send money, an
 
 **Live Demo: [https://bartr1.vercel.app/](https://bartr1.vercel.app/)**
 
+![BARTR Platform](https://placehold.co/1200x630.png?text=BARTR+Platform)
+
 ## 💻 Installation
 
 Follow these steps to set up the BARTR platform:
@@ -120,6 +122,17 @@ BARTR can be easily deployed to Vercel:
 4. **Deploy**
    - Click "Deploy" and Vercel will build and deploy your application
    - You'll get a URL like `bartr.vercel.app` where your application is live
+
+### Live Deployment
+
+**The current version of BARTR is deployed at: [https://bartr1.vercel.app/](https://bartr1.vercel.app/)**
+
+You can visit this link to explore the full platform with all features implemented including:
+- User authentication (use any credentials)
+- Dashboard with skill matching
+- Messaging with report/block functionality
+- Barter request system
+- Money transfer capabilities
 
 ## 📁 Project Structure
 
