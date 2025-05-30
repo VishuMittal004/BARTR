@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Normalize fonts */
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* font-smoothing is non-standard, using prefixed versions instead */
+  text-rendering: optimizeLegibility;
+}
+
+/* Fluid typography */
+html { font-size: calc(0.625rem + 0.42vw); }
+@media screen and (max-width:991px) { html { font-size: 1rem } }
+@media screen and (min-width:1440px) { html { font-size: 1rem } }
+
+/* Remove blue highlight on mobile tap */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer base {
+  :root {
+    /* Core colors - Inspired by Zephyr design */
+    --background: 0 0% 0%; /* Pure black background */
+    --foreground: 210 20% 98%; /* Light text for dark mode */
+    --card: 0 0% 5%; /* Very dark gray for cards */
+    --card-foreground: 210 20% 98%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 168 100% 70%; /* Changed from blue to teal for consistency */
+    --primary-foreground: 210 100% 10%;
+    --secondary: 230 15% 26%; /* Muted secondary bg */
+    --secondary-foreground: 210 20% 90%;
+    --muted: 230 15% 26%;
+    --muted-foreground: 215 16% 65%; /* Muted text */
+    --accent: 168 100% 70%; /* Teal accent color */
+    --accent-foreground: 215 33% 18%;
+    --destructive: 0 90% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%; /* Slightly lighter border for visibility */
+    --input: 0 0% 10%;
+    --ring: 210 100% 70%;
+    --chart-1: 168 100% 70%;
+    --chart-2: 210 100% 70%;
+    --chart-3: 280 100% 70%;
+    --chart-4: 43 100% 70%;
+    --chart-5: 0 90% 70%;
+    --radius: 0.5rem;
+
+    /* Sidebar specific theme */
+    --sidebar-background: 0 0% 3%; /* Almost black sidebar */
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 210 100% 70%;
+    --sidebar-primary-foreground: 210 100% 10%;
+    --sidebar-accent: 0 0% 10%; /* Very dark gray hover state */
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 0 0% 10%;
+    --sidebar-ring: 210 100% 70%;
+  }
+
+  .light {
+    --background: 0 0% 100%; /* White */
+    --foreground: 215 33% 18%; /* Dark text */
+    --card: 0 0% 98%; /* Off-white card */
+    --card-foreground: 215 33% 18%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 215 33% 18%;
+    --primary: 168 95% 43%; /* Changed from blue to teal for consistency */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 93%;
+    --secondary-foreground: 215 33% 18%;
+    --muted: 210 20% 93%;
+    --muted-foreground: 215 16% 45%;
+    --accent: 168 95% 43%; /* Darker teal for light mode */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 50%;
+    --chart-1: 168 95% 43%;
+    --chart-2: 210 100% 50%;
+    --chart-3: 280 100% 60%;
+    --chart-4: 43 100% 50%;
+    --chart-5: 0 90% 60%;
+
+    --sidebar-background: 210 20% 96%;
+    --sidebar-foreground: 215 33% 18%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 90%;
+    --sidebar-accent-foreground: 215 33% 18%;
+    --sidebar-border: 210 20% 88%;
+    --sidebar-ring: 210 100% 50%;
+  }
+}
+
+/* Base styles using standard CSS instead of @apply */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Custom button styles */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow:after {
+  background: radial-gradient(85% 120% at 50% 120%, rgba(255, 255, 255, .24) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 999px;
+  content: "";
+  height: calc(100% + 4px);
+  left: -2px;
+  opacity: 0;
+  position: absolute;
+  top: -2px;
+  transition: 0.5s all;
+  width: calc(100% + 4px);
+}
+
+.btn-glow:hover:after {
+  opacity: 0.7;
+}
+
+/* Animations */
+.fade-up {
+  opacity: 0;
+  transform: translate3d(0, -2rem, 0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Card styles */
+.card-gradient {
+  background-image: radial-gradient(16.82% 58.26% at 16.03% 41.74%, rgba(178, 178, 178, 0.2) 28.5%, rgba(201, 201, 201, 0.05) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Navigation styles */
+.nav-link-hover {
+  position: relative;
+}
+
+.nav-link-hover:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: hsl(var(--accent));
+  transition: width 0.3s ease;
+}
+
+.nav-link-hover:hover:after,
+.nav-link-hover.active:after {
+  width: 100%;
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--card));
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent) / 0.5);
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.7);
+  box-shadow: 0 0 8px 2px hsla(var(--accent) / 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox scrollbar styles */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--accent) / 0.5) hsl(var(--card));
+}
