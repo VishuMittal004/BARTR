@@ -2,8 +2,6 @@
 
 BARTR is a modern platform that enables users to exchange skills, send money, and collaborate on projects. Built with Next.js and Tailwind CSS, BARTR offers a seamless and responsive user experience across all devices.
 
-![BARTR Platform](https://placehold.co/1200x630.png?text=BARTR+Platform)
-
 ## 🚀 Quick Start
 
 The project includes multiple launchers to get you started quickly:
