@@ -2,6 +2,8 @@
 
 BARTR is a modern platform that enables users to exchange skills, send money, and collaborate on projects. Built with Next.js and Tailwind CSS, BARTR offers a seamless and responsive user experience across all devices.
 
+**Live Demo: [https://bartr1.vercel.app/](https://bartr1.vercel.app/)**
+
 ## 💻 Installation
 
 Follow these steps to set up the BARTR platform:
